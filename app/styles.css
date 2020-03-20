@@ -1,11 +1,23 @@
+/* using the google fonts import feature, import the desired fonts here. This is safer than 
+linking to the fonts website, in case the google font site crases, all fonts are hosted right here */
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,400,600&display=swap');
+
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --lightGray: hsl(0, 0%, 98%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --darkBlue: hsl(234, 12%, 34%);
+}
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    background-color: hsl(0, 0%, 98%);
+    background-color: var(--lightGray);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -13,24 +25,17 @@ header {
     max-width: 500px;
     text-align: center;
     margin: 50px auto;
+    color: var(--grayishBlue);
 }
 
-h1 {
+.header-main {
     font-weight: 200;
     margin: 0;
 }
 
-h1 span {
+.header-main span {
     font-weight: 600;
-    color: hsl(234, 12%, 34%);
-}
-
-h2 {
-    color: hsl(234, 12%, 34%);
-}
-
-p {
-    color: hsl(229, 6%, 66%);
+    color: var(--darkBlue);
 }
 
 .container {
@@ -53,6 +58,8 @@ p {
     margin: 15px;
 }
 
+/* this attribute takes the two boxes with this specific 'push' class, 
+and pushes them down by 50% */
 .box-push {
     transform: translateY(50%);
 }
@@ -67,41 +74,49 @@ p {
 }
 
 .box-red::after {
-    background-color: hsl(0, 78%, 62%);
+    background-color: var(--red);
 }
 
 .box-cyan::after {
-    background-color:hsl(180, 62%, 55%);
+    background-color: var(--cyan);
 }
 
 .box-orange::after {
-    background-color:hsl(34, 97%, 64%);
+    background-color: var(--orange);
 }
 
 .box-blue::after {
-    background-color: hsl(212, 86%, 64%);
+    background-color: var(--blue);
 }
 
-.box h2 {
+.box-headline {
+    color: var(--darkBlue);
     margin: 0;
 }
 
-.box p {
+.box-content {
+    color: var(--grayishBlue);
     font-size: 1rem;
     margin: 15px 0 40px;
 }
 
-.box img {
+.box-icon {
     display: block;
     margin-left: auto;
 }
 
-footer {
-    text-align: center;
+.attribution { 
+    font-size: 11px; text-align: center;
 }
 
-@media (max-width: 775px) {
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+
+/* remove box pattern on tablet/mobile, so they all stack in one line. */
+@media (max-width: 1138px) {
     .box-push {
-        transform: translateY(0%);
+        transform: translateY(0);
     }
 }
